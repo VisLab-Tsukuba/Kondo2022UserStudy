@@ -1,0 +1,53 @@
+body {
+    padding: 40px;
+    text-align: center;
+    width:1500;
+}
+  
+h2 {
+    margin-bottom: 50px;
+}
+  
+input {
+  width: auto;
+  margin: auto;
+}
+  
+output {
+    text-align: center;
+    display: block;
+    padding-top: 15px;
+}
+  
+label {
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    width: 120px;
+}
+  
+input[type=radio] {
+    transform: scale(1.5);
+    font-size: 18px;
+    margin: 0 5px 0 15px;
+}
+  
+.btn {
+      display: inline-block;
+      position: relative;
+      width: 160px;
+      padding: 0.8em;
+    margin-left: 1.5em;
+    margin-bottom: 1.0em;
+      text-align: center;
+      text-decoration: none;
+    border: 2px solid dimgray;
+      color: black;
+      background: white;
+}
+
+.btn:hover {
+     background: lightgray;
+       cursor: pointer;
+       text-decoration: none;
+}

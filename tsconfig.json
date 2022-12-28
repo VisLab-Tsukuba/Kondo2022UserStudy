@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es5", // TSはECMAScript 5に変換
+    // "module": "es2015", // TSのモジュールはES Modulesとして出力
+    "module": "commonjs", 
+    // "module": "CommonJS",
+    "esModuleInterop": true,
+    "strict": true,
+    // "strictNullChecks": false
+    // "moduleResolution": "node"
+  }
+}

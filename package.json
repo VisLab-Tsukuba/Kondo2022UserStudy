@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.20",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.9.10",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.10.0"
+  },
+  "private": true,
+  "dependencies": {
+    "@types/geojson": "^7946.0.7",
+    "@types/jquery": "^3.5.5",
+    "@types/topojson": "^3.2.2",
+    "@types/windows-script-host": "^5.8.3",
+    "fs": "0.0.1-security",
+    "jquery": "^3.5.1",
+    "topojson": "^3.0.2"
+  },
+  "name": "PHPExample2022",
+  "description": "Sample Program of TypeScript + PHP (C) Kazuo Misue (2022)",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
