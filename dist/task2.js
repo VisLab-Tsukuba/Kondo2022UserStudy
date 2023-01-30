@@ -6,7 +6,7 @@ window.addEventListener('load', function(){
 
 var originalArcs = [];
 var defaultVertices = 51;
-var nVertices = 15;
+var nVertices = 10;
 
 var App = /** @class */ (function(){
     function App(){
@@ -40,7 +40,6 @@ var App = /** @class */ (function(){
                 this.dataList.push(filename);
             }
             
-
             console.log("prefecture:" + this.dataList[this.dataId]);
             me.setupData(this.dataList[this.dataId]);
         }else{
@@ -75,6 +74,8 @@ var App = /** @class */ (function(){
     App.prototype.setupData = function(url){
         var me = this;
 
+        console.log("url", url, me);
+
         fetch(url).then(function(response){
             response.text().then(function(jsonString){
                 var topoJsonData = JSON.parse(jsonString);                
@@ -90,10 +91,10 @@ var App = /** @class */ (function(){
                 me.arcs[0] = originalArcs[max];
                 me.nPoints = me.arcs[0].length;
                 me.area = calcArea(me.arcs[0]);
-                me.drawAbsArcs(me.ctx, me.arcs[0], me.area);
                 
                 var reducedArcs = me.reduceEdge(me.arcs);
                 me.updateVertices(reducedArcs, nVertices);
+                me.drawAbsArcs(me.ctx, me.arcs[0], me.area);
             });
         });
     };

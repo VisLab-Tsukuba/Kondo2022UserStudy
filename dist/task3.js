@@ -77,16 +77,18 @@ var App = /** @class */ (function(){
                 type: "POST",
                 url: "answer3.php",
                 data: {number: nVertices}
-            });   
+            });
         };
     };
 
     App.prototype.setupData = function(url){
         var me = this;
 
+        console.log("url", url, me);
+
         fetch(url).then(function(response){
             response.text().then(function(jsonString){
-                var topoJsonData = JSON.parse(jsonString);                
+                var topoJsonData = JSON.parse(jsonString);            
                 originalArcs = decodeArcs(topoJsonData, topoJsonData.arcs);
                 originalArcs = scaling(originalArcs);
                 me.arcs = [[]];
@@ -99,10 +101,10 @@ var App = /** @class */ (function(){
                 me.arcs[0] = originalArcs[max];
                 me.nPoints = me.arcs[0].length;
                 me.area = calcArea(me.arcs[0]);
-                me.drawAbsArcs(me.ctx, me.arcs[0], me.area);
                 
-                var reducedArcs = me.reduceEdge(me.arcs);
-                me.updateVertices(reducedArcs, nVertices);
+                me.arcs = me.reduceEdge(me.arcs);
+                me.arcs = me.updateVertices(me.arcs, nVertices);
+                me.drawAbsArcs(me.ctx, me.arcs[0], me.area);
             });
         });
     };
@@ -136,6 +138,8 @@ var App = /** @class */ (function(){
             ctx.fill();
         }
         */
+
+        //console.log(arcs);
 
         // edge
         ctx.lineWidth = 2;
@@ -424,7 +428,8 @@ var App = /** @class */ (function(){
         }
 
         var out = [outArcs2];
-        this.setupData2(out);
+        return out;
+        //this.setupData2(out);
     };
 
     App.prototype.reduceEdge = function(arcs){
